@@ -6,7 +6,7 @@ node('ubuntu-2004-gce'){
     }
 
     stage('Unit Tests'){
-        sh "docker build -t ${imageName}-test -f Dockerfile ."
+        sh "docker build -t ${imageName}-test -f ./Dockerfile ."
         sh "docker run --rm ${imageName}-test"
     }
 }
