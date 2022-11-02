@@ -9,4 +9,4 @@ node('ubuntu-2004-gce'){
         sh "docker build -t ${imageName}-test -f Dockerfil.test ."
         sh "docker run --rm ${imageName}-test"
     }
-}∏
+}
