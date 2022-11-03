@@ -7,7 +7,7 @@ node('ubuntu-2004-gce'){
 
     stage('Unit Tests'){
         sh "sudo docker build -t ${imageName}-test -f Dockerfile.test ."
-        sh "sudo docker run --rm ${imageName}-test"
+        sh "sudo docker run --rm -v $PWD/reports ${imageName}-test"
         junit "$PWD/reports/*.xml"
     }
 }
