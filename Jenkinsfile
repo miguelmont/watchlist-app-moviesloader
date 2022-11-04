@@ -2,7 +2,7 @@ def imageName = 'miguelmont/movies-loader'
 
 pipeline {
     agent {
-        docker 'jenkins/ssh-agent:alpine'
+        label 'ubuntu-2004-gce'
     }
     stages {
         stage('Checkout'){
