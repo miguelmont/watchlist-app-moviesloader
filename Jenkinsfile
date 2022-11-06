@@ -16,9 +16,9 @@ pipeline {
             }
         }
         stage('Unit Tests'){
+            agent { dockerfile true }
             steps{
-                sh "docker build -t ${imageName}-test -f Dockerfile.test ."
-                sh "docker run --rm ${imageName}-test"
+                sh "Python3 test_main.py"
 
             }
         }
