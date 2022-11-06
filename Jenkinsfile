@@ -18,6 +18,7 @@ pipeline {
         stage('Unit Tests'){
             agent { dockerfile true }
             steps{
+                sh "./script.sh"
                 sh "python test_main.py"
 
             }
