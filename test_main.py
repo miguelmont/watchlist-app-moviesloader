@@ -6,7 +6,7 @@ class TestJSONLoaderMethods(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        with open('mov.json') as json_file:
+        with open('movies.json') as json_file:
             cls.movies = json.load(json_file)
 
     def test_rank(self):
