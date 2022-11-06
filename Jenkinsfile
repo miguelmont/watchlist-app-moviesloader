@@ -12,8 +12,8 @@ pipeline {
         }
         stage('Unit Tests'){
             steps{
-                sh "sudo docker build -t ${imageName}-test -f Dockerfile.test ."
-                sh "sudo docker run --rm ${imageName}-test"
+                sh "docker build -t ${imageName}-test -f Dockerfile.test ."
+                sh "docker run --rm ${imageName}-test"
 
             }
         }
@@ -25,6 +25,10 @@ pipeline {
             }
         }
     }
+    options {
+        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '20')
+    }
+
     post{
         success {
             slackSend(color:'GREEN', message: "${env.JOB_NAME} Successful build")
