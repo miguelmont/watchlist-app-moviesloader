@@ -4,6 +4,10 @@ pipeline {
     agent {
         label 'ubuntu-2004-gce'
     }
+    options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '20')
+    }
+
     stages {
         stage('Checkout'){
             steps{
