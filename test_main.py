@@ -16,7 +16,7 @@ class TestJSONLoaderMethods(unittest.TestCase):
         self.assertEqual(self.movies[0]['title'], 'The Shawshank Redemption')
     
     def test_id(self):
-        self.assertEqual(self.movies[0]['id'], 'tt0111161')
+        self.assertEqual(self.movies[1]['id'], 'tt0111161')
 
 if __name__ == '__main__':
     unittest.main()
