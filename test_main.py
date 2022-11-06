@@ -1,13 +1,12 @@
 import unittest
 import json
-import xmlrunner
 
 class TestJSONLoaderMethods(unittest.TestCase):
     movies = []
 
     @classmethod
     def setUpClass(cls):
-        with open('movies.json') as json_file:
+        with open('mov.json') as json_file:
             cls.movies = json.load(json_file)
 
     def test_rank(self):
@@ -20,5 +19,4 @@ class TestJSONLoaderMethods(unittest.TestCase):
         self.assertEqual(self.movies[0]['id'], 'tt0111161')
 
 if __name__ == '__main__':
-    runner = xmlrunner.XMLTestRunner(output='reports')
-    unittest.main(testRunner=runner)
+    unittest.main()
