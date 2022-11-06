@@ -18,7 +18,7 @@ pipeline {
         stage('Unit Tests'){
             agent { dockerfile true }
             steps{
-                sh 'chmod +x ./script.sh'
+                sh 'chmod +x script.sh'
                 sh "./script.sh"
                 sh "python test_main.py"
 
