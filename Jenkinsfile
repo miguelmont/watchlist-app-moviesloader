@@ -13,13 +13,13 @@ pipeline {
         stage("Fix the permission issue") {
             steps {
                 sh "sudo chown root:jenkins /run/docker.sock"
-                sh 'chmod +x script.sh'
-                sh "./script.sh"
             }
         }
         stage('Unit Tests'){
             agent { dockerfile true }
             steps{
+                sh 'chmod +x ./script.sh'
+                sh "./script.sh"
                 sh "python test_main.py"
 
             }
