@@ -29,9 +29,7 @@ pipeline {
             steps {
                 timeout(time:3, unit:"DAYS") {
                 input(message: "Deploy to Stage", ok: "Yes, let's do it!")
-                script{
-                    currentBuild.keepLog = true
-                }
+                currentBuild.keepLog = false
             }
             }
         }
