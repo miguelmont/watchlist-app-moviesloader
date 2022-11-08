@@ -17,7 +17,7 @@ pipeline {
             }
         }
         stage('Unit Tests'){
-            agent { dockerfile true }
+            agent { dockerfile {filename 'Dockerfile.test'}}
             steps{
                 sh 'chmod +x script.sh'
                 sh './script.sh'
@@ -35,7 +35,7 @@ pipeline {
         }
     }
     options {
-        buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '20')
+        buildDiscarder logRotator(artifactDaysToKeepStr: '7', artifactNumToKeepStr: '20', daysToKeepStr: '7', numToKeepStr: '20')
     }
 
     post{
