@@ -35,6 +35,7 @@ pipeline {
     }
     options {
         buildDiscarder logRotator(artifactDaysToKeepStr: '7', artifactNumToKeepStr: '20', daysToKeepStr: '7', numToKeepStr: '20')
+        durabilityHint('SURVIVABLE_NONATOMIC ')
     }
 
     post{
