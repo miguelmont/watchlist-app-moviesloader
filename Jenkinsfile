@@ -17,7 +17,7 @@ pipeline {
             }
         }
         stage('Unit Tests'){
-            agent { dockerfile {filename 'Dockerfile.test' dir 'build'}}
+            agent { dockerfile {filename 'Dockerfile.build' dir 'build'}}
             steps{
                 sh 'chmod +x script.sh'
                 sh './script.sh'
